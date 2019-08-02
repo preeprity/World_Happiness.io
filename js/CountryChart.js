@@ -38,7 +38,7 @@ var path = d3.geoPath().projection(projection);
 
 svg.call(tip);
 
-queue()
+d3.queue()
     .defer(d3.json, "../data/world_countries.json")
     .defer(d3.csv, "../data/world_happiness.csv")
     .await(ready);
