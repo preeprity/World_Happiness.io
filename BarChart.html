@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>World Happiness Analysis</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="css/Bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/barchart.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/AppStyle.css" rel="stylesheet" />
+    <link href="css/Breadcrumb.css" rel="stylesheet" />
+    
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/d3-tip.js"></script>    
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div
+        class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-primary border-bottom shadow-sm"
+      >
+        <h5 class="my-0 mr-md-auto font-weight-bold text-light">
+          World Happiness Index
+        </h5>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="wizard">
+            <a href="Index.html">Introduction</a>
+            <a href="Country.html">Geo Happiness</a>      
+            <a href="BarChart.html " class="current">Regional Analysis</a>
+            <a href="scatter.html">Influencers</a>
+            <a href="Conclusion.html">Inference</a>
+          </div>
+        </div>
+      </div>
+      <div class="row p-3">
+        <div class="col">
+          <div class="card text-left">
+            <div class="card-header p-2">
+              Analysis of happiness using bar charts
+            </div>
+            <div class="row">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">                    
+                    <br>
+                    <button class = "styled" id = "btn" onclick = "toggle()">Detailed Contributors</button>                    
+                    <div class = "row">
+                    <div id="vizbar"  style="display: block" class=" p-2"></div>
+                    <div id ="vizbar1" style="display: none" class ="p-2"></div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <h2>Inference</h2>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!-- add barcharts -->
+      <script src="js/barchart.js" type="text/javascript"></script>
+      <script src="js/StackedBar.js" type="text/javascript"></script>
+      
+    </div>
+  </body>
+</html>

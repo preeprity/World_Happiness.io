@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>World Happiness Index</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="css/Bootstrap/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/AppStyle.css" rel="stylesheet" />
+    <link href="css/Breadcrumb.css" rel="stylesheet" />
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+<link rel="stylesheet" href="css/ScatterHappiness.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div
+        class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-primary border-bottom shadow-sm"      >
+        <h5 class="my-0 mr-md-auto font-weight-bold text-light">
+          World Happiness Index
+        </h5>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="wizard">
+            <a href="Index.html">Introduction</a>
+            <a href="Country.html">Geo Happiness</a>
+            <a href="BarChart.html">Regional Analysis</a>            
+            <a href="scatter.html" class="current">Influencers</a>
+            <a href="Conclusion.html">Inference</a>
+          </div>
+        </div>
+      </div>
+      <div class="row p-3">
+        <div class="col">
+          <div class="card text-left">
+            <div class="card-header p-2">
+              Happiness score analysis using Scatter plots
+            </div>
+            <div class="row">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col">
+                    Scatter Chart
+                    <div id="viz" class="p-2 row"></div>                    
+                    <div class="row">                      
+                    <div id="label" class = "label"><b>x-Axis:</b></div>
+                    <select name="xAX" id="xAXs">
+                      <option value ="Score">Score</option>
+                      <option value ="Life">Life Expectancy</option>
+                      <option value ="Rank">Rank</option>        
+                      <option value ="GDP">GDP</option>        
+                      <option value ="Family">Family</option>
+                      <option value ="Freedom">Freedom</option>
+                      <option value ="Generosity">Generosity</option>
+                      <option value ="Govt">Govenernment Trust</option>
+                    </select>
+                    <div id="label2"><b>y-Axis:</b></div>
+                    <select name="yAX" id="yAXs">
+                      <option value ="GDP">GDP</option>
+                      <option value ="Score">Score</option>
+                      <option value ="Rank">Rank</option> 
+                      <option value ="Life">Life Expectancy</option>
+                      <option value ="Family">Family</option>
+                      <option value ="Freedom">Freedom</option>
+                      <option value ="Generosity">Generosity</option>
+                      <option value ="Govt">Govenernment Trust</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <h2>Inference</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/scatterHappiness.js" ></script>
+  </body>
+</html>
