@@ -1,5 +1,39 @@
-
+function toggle() {
+  console.log(document.getElementById("myid").style);
+  console.log("hi");
+}
 var format = d3.format(",");
+
+// Features of the annotation
+const annotations = [
+  {
+    note: {
+      label: "Norway has highest happiness score"    
+    },
+    x: 530,
+    y: 50,
+    dy: 20,
+    dx:30
+  }
+]
+
+const annotations1 = [
+  {
+    note: {
+      label: "Central Africa is not a happy country"    
+    },
+    x: 530,
+    y: 320,
+    dy: 0,
+    dx: 40
+  }
+]
+
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+
+const makeAnnotations1 = d3.annotation()  
+  .annotations(annotations1)
 
 // Set tooltips
 var tip = d3.tip()
@@ -8,6 +42,8 @@ var tip = d3.tip()
             .html(function(d) {
               return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Happiness Score: </strong><span class='details'>" + format(d.population) +"</span>" + "<br></span>" + "<strong>Happiness Rank: </strong><span class='details'>" + format(d.rank) +"</span>";
             })
+
+
 
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
             width = 960 - margin.left - margin.right,
@@ -49,7 +85,7 @@ function ready(error, data, population) {
 
   population.forEach(function(d) { populationById[d.name] = +d.Happiness; rank[d.name] = +d.rank });
   data.features.forEach(function(d) { d.population = populationById[d.properties.name] ; d.rank = rank[d.properties.name]});
-  console.log(color(populationById["Canada"]));
+  
   svg.append("g")
       .attr("class", "countries")
     .selectAll("path")
@@ -64,23 +100,28 @@ function ready(error, data, population) {
         .style("stroke","white")
         .style('stroke-width', 0.3)
         .on('mouseover',function(d){
-          tip.show(d);
-          console.log(d);
-               
+          tip.show(d);            
 
           d3.select(this)
             .style("opacity", 1)
             .style("stroke","white")
             .style("stroke-width",3);
         })
-        .on('mouseout', function(d){
-          
-          
+        .on('mouseout', function(d){        
+          tip.hide(d);
           d3.select(this)
             .style("opacity", 0.8)
             .style("stroke","white")
             .style("stroke-width",0.3);
         });
+
+  d3.select("svg")
+  .append("g")
+  .call(makeAnnotations)
+
+  d3.select("svg")
+  .append("g")
+  .call(makeAnnotations1)
 
   svg.append("path")
       .datum(topojson.mesh(data.features, function(a, b) { return a.name !== b.name; }))

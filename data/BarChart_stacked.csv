@@ -1,7 +1,7 @@
-﻿Region,Dystopia,Gnerosity,GDP,Life,Govt,Freedom
-Africa,1.78,0.22,0.58,0.28,0.1,0.36
-Asia,1.64,0.28,1.06,0.6,0.13,0.42
-Australia,2.06,0.49,1.45,0.83,0.34,0.61
-Europe,1.89,0.23,1.31,0.75,0.14,0.42
-NorthAmerica,2.3,0.26,1,0.62,0.11,0.46
-SouthAmerica,2.29,0.19,1.1,0.63,0.08,0.45
+﻿Region,Dystopia,Gnerosity,GDP,Life,Govt,Freedom,Family
+Africa,1.78,0.22,0.58,0.28,0.1,0.36,0.97
+Asia,1.64,0.28,1.06,0.6,0.13,0.42,1.17
+Australia,2.06,0.49,1.45,0.83,0.34,0.61,1.53
+Europe,1.89,0.23,1.31,0.75,0.14,0.42,1.37
+NorthAmerica,2.3,0.26,1,0.62,0.11,0.46,1.25
+SouthAmerica,2.29,0.19,1.1,0.63,0.08,0.45,1.37

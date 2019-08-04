@@ -12,10 +12,15 @@
     <link href="css/AppStyle.css" rel="stylesheet" />
     <link href="css/Breadcrumb.css" rel="stylesheet" />
     
-    <script src="http://d3js.org/d3.v4.min.js"></script>
-    <script src="http://d3js.org/queue.v1.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <script src="js/d3-tip.js"></script>    
+    
+    <!--<script src="http://d3js.org/d3.v4.min.js"></script>-->
+    <script type="text/javascript" src="js/d3.min.js"></script>
+     <!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
+    <script type="text/javascript" src="js/queue.js"></script>
+     <!--<script src="http://d3js.org/topojson.v1.min.js"></script>-->
+    <script type="text/javascript" src="js/topojson.js"></script>
+   <script type ="text/javascript" src="js/d3-annotation.min.js"></script>
+    <script src="js/d3-tip.js"></script>  
   </head>
 
   <body>
@@ -30,11 +35,11 @@
       <div class="row">
         <div class="col-12">
           <div class="wizard">
-            <a href="Index.html">Introduction</a>
+            <a href="index.html">Introduction</a>
             <a href="Country.html">Geo Happiness</a>      
             <a href="BarChart.html " class="current">Regional Analysis</a>
             <a href="scatter.html">Influencers</a>
-            <a href="Conclusion.html">Inference</a>
+            
           </div>
         </div>
       </div>
@@ -56,7 +61,32 @@
                     </div>
                   </div>
                   <div class="col">
-                    <h2>Inference</h2>                    
+                    <h2>Study</h2>   
+                    <p>
+                        The happiness score across continents is visually reperesented in this Bar Graph. 
+                    </p>
+                    <p>
+                        Intresting insights from the 2017 data indicate that at a continent level 
+                        
+                        Australia  is  the happiest continent with a consolidated happiness score of 7.3 
+                        Africa  is  the least happiest continent with a consolidated happiness score of 4.29
+                        
+                        Europe, South America and North America have almost the same level of happiness score at a continent level followed by Asia at 4th.
+                    </p>   
+                    <p>
+                      Overall Happiness Score of the continents is shown inside the bar. On hovering over the bar, we can see a comparison to other continents happiness scores.
+                    </p> 
+                    <p>
+                      According to the Cantril Ladder survey mentioned in first slide, Happiness as a measure is derived from GDP, Family Life, Life Expectancy, Trust people have on Government, people's Freedom.
+                      Clicking on the "Detailed Contributor" button on top of the chart, we see by what proportion each of these influencers contribute to the overall Happiness Score in form of a Stacked Bar Chart.
+                      The button is a toggle button to flip between these 2 charts.  
+                    </p>     
+                    <p>
+                      We can see Dystopia - which is a residual negative effect plays a major role  in happiness score. GDP also seems to be an important factor.
+                      Family and Life expectancy are next important contributors.
+                      <br>
+                      Australia , which has the highest score, Government Trust is a major factor compared to other countries.
+                    </p>        
                   </div>
                 </div>
               </div>

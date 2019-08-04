@@ -17,6 +17,7 @@
     <script type="text/javascript" src="js/queue.js"></script>
     <!--<script src="http://d3js.org/topojson.v1.min.js"></script>-->
     <script type="text/javascript" src="js/topojson.js"></script>
+    <script type ="text/javascript" src="js/d3-annotation.min.js"></script>
     <script src="js/d3-tip.js"></script>
   </head>
 
@@ -32,11 +33,10 @@
       <div class="row">
         <div class="col-12">
           <div class="wizard">
-            <a href="Index.html">Introduction</a>
+            <a href="index.html">Introduction</a>
             <a href="Country.html" class="current">Geo Happiness</a>
             <a href="BarChart.html">Regional Analysis</a>
-            <a href="scatter.html">Influencers</a>            
-            <a href="Conclusion.html">Inference</a>
+            <a href="scatter.html">Influencers</a>   
           </div>
         </div>
       </div>
@@ -53,8 +53,8 @@
                     <div id="viz" class="p-2"></div>
                   </div>
                   <div class="col">
-                    <h2>Inference</h2>
-                    <p>
+                    <h2>Study</h2>
+                    <p id ="myid">
                       The map shows the world map color coded as per their
                       happiness score and happiness rank. The countries with
                       good score are indicated by Green and as score reduces,
@@ -62,19 +62,24 @@
                       shades of Pink.
                     </p>
                     <p>
+                      Hovering over the countries opens a pop up with the details of country 
+                      name, Happines Score and Rank. 
+                    </p>
+                    <p>
                       As of 2017,<strong>
-                        Norway is the happiest country with score of about
-                        7.54</strong
-                      >.
+                        Norway is the happiest country</strong> with score of about
+                        7.54. <strong>Central African Republic is least happy</strong> with lowest score of 2.96 and lowest rank 155.
                     </p>
                     <p>
                       On the whole, Australia , Europe, North America and South
-                      America are generally in the happier belt
+                      America are generally in the happier belt. Europe is one continent with overall happiness score 
+                      above 5.5. But we see the exceptions are Ukraine, Albania and Bulagria (In pink) with scores less than 5.
                     </p>
                     <p>
-                      Countries of Africa, South Asia fall under not not very
-                      happy bucket.
-                    </p>
+                      Countries of Africa, South Asia fall under not very
+                      happy bucket. Almost whole of Africa has score less than 5.Exceptions are Algeria and Libya with
+                      the score of 5.87 and 5.53 resp.
+                    </p>                    
                   </div>
                 </div>
               </div>

@@ -14,6 +14,8 @@
     <script src="http://d3js.org/queue.v1.min.js"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <script src="js/d3-tip.js"></script>
+    <script type ="text/javascript" src="js/d3-annotation.min.js"></script>
+
 <link rel="stylesheet" href="css/ScatterHappiness.css">
   </head>
 
@@ -28,11 +30,10 @@
       <div class="row">
         <div class="col-12">
           <div class="wizard">
-            <a href="Index.html">Introduction</a>
+            <a href="index.html">Introduction</a>
             <a href="Country.html">Geo Happiness</a>
             <a href="BarChart.html">Regional Analysis</a>            
             <a href="scatter.html" class="current">Influencers</a>
-            <a href="Conclusion.html">Inference</a>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@
         <div class="col">
           <div class="card text-left">
             <div class="card-header p-2">
-              Happiness score analysis using Scatter plots
+              Study of factors the influence Happiness Score
             </div>
             <div class="row">
               <div class="card-body ">
@@ -59,6 +60,7 @@
                       <option value ="Freedom">Freedom</option>
                       <option value ="Generosity">Generosity</option>
                       <option value ="Govt">Govenernment Trust</option>
+                      <option value ="Dystopia">Dystopia</option>
                     </select>
                     <div id="label2"><b>y-Axis:</b></div>
                     <select name="yAX" id="yAXs">
@@ -74,7 +76,42 @@
                     </div>
                   </div>
                   <div class="col">
-                    <h2>Inference</h2>
+                    <h2 >Study</h2>
+                    <br>
+                    <br>                        
+                    The chart could be used to study the trend of how different factors 
+                    that contibute to the Score is related to each other 
+                    or with the score itself. As shown in Legend, each of the region is color coded individually
+                     to show how the factors
+                    play in that region.
+                  
+                    <p>
+                    The default study shows how GDP and Score is related. As we can see, when Happiness score increases overall effect of GDP 
+                    plays an important factor in the score. Africa , as shown in brown dots are in general having low GDP influence and their happiness score
+                    is also less.
+                    
+                    </p>
+                    <p>
+                    Countries of Europe have a high happiness Score and the GDP factor is also higher. This shows GDP is directly proportional to the Happiness Score.
+                    </p>
+                  <p>
+                    Select all the factors from the drop down provided to study their individual effect on the Happiness score.
+                    Overall, we see as the country's Happiness score increases, these positive factors play a major role in the the overall score.
+
+                  </p>
+
+                  <ul >
+                    <li> <strong> Score Vs GDP - </strong> As score increases, influence of GDP seems increasing. GDP is maximum for European countries where happiness score is high </li>
+                    <li><strong> Score Vs Life Expectancy - </strong> Again as happiness score increases , life expectamcy seems to increase. African countries that have low happiness sscore, have low life expectancy as per the chart.
+                    </li>
+                    <li>
+                      <strong> Score Vs generosity - </strong>
+                      There is no trend as such for this combination. Generosity of the people is not per se related to happiness score. People of Myanmar
+                      with Score of 4.5 , have an exceptional Generosity shown as outlier dot. 
+                    </li>
+                    <li><strong>Score Vs Freedom - </strong> Again, the overall trend shows as Score increses, Freedom increses. But in lower chart, e see some African countries with low score also having high freedom</li>
+                  </ul>
+                
                   </div>
                 </div>
               </div>

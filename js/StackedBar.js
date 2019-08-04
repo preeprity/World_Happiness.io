@@ -1,22 +1,22 @@
 var svg1 = d3.select('#vizbar1').append('svg').attr("width","1024").attr("height","600");
 
-var margin = 80;
-var width = 1000 - 2 * margin;
-var height = 600 - 2 * margin;
+var margin1 = 80;
+var width1 = 1000 - 2 * margin1;
+var height1 = 600 - 2 * margin1;
 
 // set x scale
 var x = d3.scaleBand()
-.rangeRound([0, width])
+.rangeRound([0, width1])
 .paddingInner(0.3)
 .align(0.1);
 
 // set y scale
 var y = d3.scaleLinear()
-.rangeRound([height, 0]);
+.rangeRound([height1, 0]);
 
 // set the colors
 var z = d3.scaleOrdinal()
-.range(["orange", "red", "brown", "grey", "blue", "lightgreen", "aqua"]);
+.range(["lightpink", "red", "brown", "grey", "blue", "lightgreen", "green"]);
 
 // load the csv and create the chart
 d3.csv("data/BarChart_stacked.csv", function(d, i, columns) {
@@ -45,7 +45,7 @@ svg1.append("g")
   .attr("y", function(d) { return y(d[1]); })
   .attr("height", function(d) { return y(d[0]) - y(d[1]); })
   .attr("width", x.bandwidth())
-.on("mouseover", function() { tooltip.style("display", null); })
+.on("mouseover", function() { tooltip.style("display", "block"); })
 .on("mouseout", function() { tooltip.style("display", "none"); })
 .on("mousemove", function(d) {   
   console.log(tooltip.select("text").text(d[1]-d[0]));  
@@ -57,13 +57,13 @@ svg1.append("g")
 
 svg1.append("g")
   .attr("class", "axis")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", "translate(0," + height1 + ")")
   .call(d3.axisBottom(x));
 
 svg1.append("g")
   .attr("class", "axis")
   .call(d3.axisLeft(y).ticks(null, "s"))
-.append("text")
+  .append("text")
   .attr("x", 2)
   .attr("y", y(y.ticks().pop()) + 0.5)
   .attr("dy", "0.32em")
@@ -81,13 +81,13 @@ var legend = svg1.append("g")
   .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
 legend.append("rect")
-  .attr("x", width - 19)
+  .attr("x", width1 - 19)
   .attr("width", 19)
   .attr("height", 19)
   .attr("fill", z);
 
 legend.append("text")
-  .attr("x", width - 24)
+  .attr("x", width1 - 24)
   .attr("y", 9.5)
   .attr("dy", "0.32em")
   .text(function(d) { return d; });
