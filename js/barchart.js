@@ -1,4 +1,6 @@
 
+
+
 function toggle() {
     var b = document.getElementById("btn");
     var x = document.getElementById("vizbar");
@@ -16,7 +18,7 @@ function toggle() {
         x.style.display="block";
     }    
 }
-
+function barchart(){
 // Features of the annotation
 const annotations = [
     {
@@ -52,7 +54,7 @@ var color = d3.scaleOrdinal()
     .domain(["Asia","Africa","Australia","NorthAmerica","SouthAmerica","Europe"])
     .range(["rgb(256,146,146)","rgb(174,18,56)", "rgb(4,95,4)","rgb(121,199,121)","rgb(63,198,63)","rgb(63,198,63)"]);
 
-var svg = d3.select('#vizbar').append('svg').attr("width","1024").attr("height","600");
+var svg = d3.select('#vizbar').append('svg').attr("width",1024).attr("height",600);
 
 var margin = 80;
 var width = 1000 - 2 * margin;
@@ -166,7 +168,7 @@ d3.csv("data/BarChart.csv", function(error, data) {
         .attr('text-anchor', 'middle')
         .text((a) => `${a.Score}`)
 
-        d3.select("svg")
+  d3.select("svg")
   .append("g")
   .call(makeAnnotations)
 
@@ -197,3 +199,7 @@ svg.append('text')
     .attr('y', 40)
     .attr('text-anchor', 'middle')
     .text('Happiness Score of Continents')
+
+}
+
+barchart();

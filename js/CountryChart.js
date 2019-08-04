@@ -1,3 +1,5 @@
+function country(){
+
 function toggle() {
   console.log(document.getElementById("myid").style);
   console.log("hi");
@@ -150,3 +152,7 @@ function ready(error, data, population) {
   .text(function(d, i){ return legend_labels[i]; });
 
 }
+
+}
+
+country();

@@ -1,3 +1,5 @@
+function stacked() {
+
 var svg1 = d3.select('#vizbar1').append('svg').attr("width","1024").attr("height","600");
 
 var margin1 = 80;
@@ -47,8 +49,7 @@ svg1.append("g")
   .attr("width", x.bandwidth())
 .on("mouseover", function() { tooltip.style("display", "block"); })
 .on("mouseout", function() { tooltip.style("display", "none"); })
-.on("mousemove", function(d) {   
-  console.log(tooltip.select("text").text(d[1]-d[0]));  
+.on("mousemove", function(d) {    
   var xPosition = d3.mouse(this)[0] - 5;
   var yPosition = d3.mouse(this)[1] - 5;  
   tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
@@ -110,3 +111,7 @@ tooltip.append("text")
 .style("text-anchor", "middle")
 .attr("font-size", "12px")
 .attr("font-weight", "bold");
+
+}
+
+stacked();
