@@ -20,6 +20,9 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
 .range(["lightpink", "red", "brown", "grey", "blue", "lightgreen", "green"]);
 
+var chart1 = svg1.append('g')
+    .attr('transform', `translate(65,65)`);
+
 // load the csv and create the chart
 d3.csv("data/BarChart_stacked.csv", function(d, i, columns) {
 for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
@@ -35,7 +38,18 @@ x.domain(data.map(function(d) { return d.Region; }));
 y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 z.domain(keys);
 
-svg1.append("g")
+chart1.append("g")
+  .attr("class", "axis")
+  .attr("transform", "translate(0," + height1 + ")")
+  .call(d3.axisBottom(x));
+
+chart1.append('g')
+  .attr("class","axis")
+  .attr("transform","translate(" + 0 + " ,0 )")
+   .call(d3.axisLeft(y));
+
+
+chart1.append("g")
 .selectAll("g")
 .data(d3.stack().keys(keys)(data))
 .enter().append("g")
@@ -47,32 +61,18 @@ svg1.append("g")
   .attr("y", function(d) { return y(d[1]); })
   .attr("height", function(d) { return y(d[0]) - y(d[1]); })
   .attr("width", x.bandwidth())
-.on("mouseover", function() { tooltip.style("display", "block"); })
-.on("mouseout", function() { tooltip.style("display", "none"); })
-.on("mousemove", function(d) {    
-  var xPosition = d3.mouse(this)[0] - 5;
-  var yPosition = d3.mouse(this)[1] - 5;  
-  tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-  tooltip.select("text").text("d[1]-d[0]");
-});
+  .on("mouseover", function() { console.log("hi"); tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 5;
+    var yPosition = d3.mouse(this)[1] - 5;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    console.log(tooltip.select("text").text(d[1]-d[0]));
+    tooltip.select("text").text(d[1]-d[0]);
+  });
+  
 
-svg1.append("g")
-  .attr("class", "axis")
-  .attr("transform", "translate(0," + height1 + ")")
-  .call(d3.axisBottom(x));
-
-svg1.append("g")
-  .attr("class", "axis")
-  .call(d3.axisLeft(y).ticks(null, "s"))
-  .append("text")
-  .attr("x", 2)
-  .attr("y", y(y.ticks().pop()) + 0.5)
-  .attr("dy", "0.32em")
-  .attr("fill", "#000")
-  .attr("font-weight", "bold")
-  .attr("text-anchor", "start");
-
-var legend = svg1.append("g")
+var legend = chart1.append("g")
   .attr("font-family", "sans-serif")
   .attr("font-size", 10)
   .attr("text-anchor", "end")
@@ -95,7 +95,7 @@ legend.append("text")
 });
 
 // Prep the tooltip bits, initial display is hidden
-var tooltip = svg1.append("g")
+var tooltip = chart1.append("g")
 .attr("class", "tooltip")
 .style("display", "none");
   
